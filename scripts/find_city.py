@@ -1,5 +1,5 @@
 import requests
-from parametres import app_id
+from scripts.parametres import app_id
 
 
 def findCity(s_city: str):
@@ -15,8 +15,3 @@ def findCity(s_city: str):
     except:
         return None
 
-
-print(
-    findCity('Tula'),
-    findCity('Moscow')
-)

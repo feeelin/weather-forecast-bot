@@ -1,5 +1,5 @@
 import requests
-from find_city import app_id
+from scripts.find_city import app_id
 
 
 def get_forecast(city_id: int):
@@ -10,12 +10,12 @@ def get_forecast(city_id: int):
 
         output = {
             'conditions': data['weather'][0]['description'],
-            'temp': data['main']['temp']
+            'temp': data['main']['temp'],
         }
         return output
 
     except:
         pass
 
+print(get_forecast(480562))
 
-print(get_forecast(480534), get_forecast(524901))

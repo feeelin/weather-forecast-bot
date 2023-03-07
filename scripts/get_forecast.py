@@ -16,6 +16,3 @@ def get_forecast(city_id: int):
 
     except:
         pass
-
-print(get_forecast(480562))
-

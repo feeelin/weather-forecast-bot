@@ -22,8 +22,9 @@ async def text_handler(message: types.message):
 
     if result:
         data = get_forecast(result)
-        await message.reply(f'В городе {message.text} сегодня {data["conditions"]}, температура воздуха '
-                            f'{data["temp"]}')
+        await message.reply(f'В городе {message.text} сегодня {data["conditions"]}.\nТемпература воздуха '
+                            f'{int(data["temp"])}°C, ощущается как {int(data["feels_like"])}°C\n'
+                            f'Скорость ветра {data["wind_speed"]} м/c')
     else:
         await message.reply(f'Город {message.text} не найден')
 

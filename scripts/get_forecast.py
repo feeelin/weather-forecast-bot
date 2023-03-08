@@ -11,6 +11,8 @@ def get_forecast(city_id: int):
         output = {
             'conditions': data['weather'][0]['description'],
             'temp': data['main']['temp'],
+            'feels_like': data['main']['feels_like'],
+            'wind_speed': data['wind']['speed']
         }
         return output
 

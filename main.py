@@ -12,8 +12,14 @@ async def start_handler(message: types.message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
 
-    await bot.send_message(user_id, text=f'Привет, {user_name}! \nЯ помогу тебе узнать погоду на сегодня, введи '
-                                         'город!')
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    buttons = ['Москва', 'Санкт-Петербург', 'Тула']
+
+    for button in buttons:
+        markup.add(button)
+
+    await bot.send_message(user_id, text=f'Привет, {user_name}! \nЯ помогу тебе узнать погоду на сегодня.\nНажми кнопку'
+                                         f' или введи город!', reply_markup=markup)
 
 
 @dp.message_handler(content_types='text')

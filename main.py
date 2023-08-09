@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher, types, executor
 from scripts.get_forecast import *
 from scripts.find_city import *
 
-token = '6165297575:AAFm_5L7XHNRa1tQyozhhxfCQ6PnL8Pb1a4'
+token = 'Enter tocken here'
 bot = Bot(token)
 dp = Dispatcher(bot=bot)
 

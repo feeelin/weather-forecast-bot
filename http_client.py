@@ -44,12 +44,15 @@ class WOMHttpClient(HTTPClient):
         ) as response:
             result = await response.json()
 
-            forecast = Forecast(
-                description=result['weather'][0]['description'],
-                temperature=result['main']['temp'],
-                feels_like=result['main']['feels_like'],
-                wind_speed=result['wind']['speed']
-            )
+            if result:
+                forecast = Forecast(
+                    description=result['weather'][0]['description'],
+                    temperature=result['main']['temp'],
+                    feels_like=result['main']['feels_like'],
+                    wind_speed=result['wind']['speed']
+                )
+            else:
+                forecast = None
 
             return forecast
 

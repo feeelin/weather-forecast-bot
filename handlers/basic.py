@@ -21,6 +21,9 @@ async def start_handler(message: Message):
 @router.message(F.text)
 async def forecast_handler(message: Message):
     web_client = await initialize_web_client()
-    value = str(await web_client.get_city_forecast(message.text))
-    await message.answer(value)
+    value = await web_client.get_city_forecast(message.text)
+    if value:
+        await message.answer(str(value))
+    else:
+        await message.answer('Город не найден')
 
